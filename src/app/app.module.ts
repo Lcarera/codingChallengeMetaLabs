@@ -8,12 +8,13 @@ import { MaterialModule } from "./material.module";
 import { HeaderComponent } from './shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
+import { EmployeeFilterPipe } from './shared/pipes/employee-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    HeaderComponent
+    HeaderComponent,
+    EmployeeFilterPipe
   ],
   imports: [
     BrowserModule,
