@@ -33,4 +33,16 @@ export class EmployeeListComponent {
       }
     });
   }
+
+  addEmployee() {
+    
+  }
+
+  editEmployee(employeeId:number): void {
+    console.log("Edit employee: " + employeeId);
+  }
+
+  deleteEmployee(employeeId:number): void {
+    console.log("Delete employee: " + employeeId);
+  }
 }

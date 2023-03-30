@@ -1,5 +1,6 @@
 <mat-list class="employee-list">
-  <mat-label color="secondary" style="margin-right: 2em;">Sort By:</mat-label>
+ <div class="controls-container">
+  <mat-label style="margin-right: 1em;" class="dark-font">Sort By:</mat-label>
   <mat-form-field color="primary" class="sort-dropdown">
     <mat-select [(ngModel)]="selectedSortOption" (selectionChange)="sortEmployees()" color="primary">
       <mat-option value="id">Oldest</mat-option>
@@ -9,14 +10,22 @@
     </mat-select>
   </mat-form-field>
   <div class="search-container">
-    <mat-label color="secondary" style="margin-right: 2em;">Search:</mat-label>
+    <mat-label color="secondary" style="margin-right: 1em;" class="dark-font">Search:</mat-label>
     <mat-form-field color="primary">
       <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Search for employees">
     </mat-form-field>
-  </div>  
+  </div>
+  <button class="add-employee">Add employee</button>
+</div>
   <mat-list-item *ngFor="let employee of employees | employeeFilter:searchTerm" class="employee-item">
     <h3 mat-line>{{ employee.name }}</h3>
     <p mat-line>Job Title: {{ employee.jobTitle }}</p>
     <p mat-line>Department: {{ employee.department }}</p>
+    <button mat-icon-button (click)="editEmployee(employee.id)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="deleteEmployee(employee.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
   </mat-list-item>
 </mat-list>

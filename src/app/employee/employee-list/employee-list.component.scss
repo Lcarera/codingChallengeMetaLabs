@@ -5,23 +5,22 @@
 }
 
 .employee-item {
-    background-color: #fff;
+    background-color: #FFF0F4;
     padding: 16px;
     margin-bottom: 8px;
     border-radius: 4px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.mat-list-item {
-    color: #fff;
-}
 
-.mat-list-item:nth-child(even) {
-    background-color: #424242;
+  
+.mat-list-item {
+    background-color: #353D44;
+    color: #FFF0F4;
 }
   
-.mat-list-item:nth-child(odd) {
-    background-color: #616161;
+.mat-list-item:hover {
+    background-color: #607D8B;
 }
 
 .sort-dropdown {
@@ -30,32 +29,100 @@
 }
 
 ::ng-deep .mat-select-arrow {
-    color: black;
+    color: #353D44;
 }
   
 ::ng-deep .mat-select-value {
-    color: black;
+    color: #353D44;
 }
   
 ::ng-deep .mat-option {
-    color: black;
-    background-color: white;
+    color: #353D44;
+    background-color: #FFF0F4;
 }
   
 ::ng-deep .mat-form-field-underline {
-    background-color: black;
+    background-color: #353D44;
 }
+
+.mat-option:hover {
+    color: #353D44;
+    background-color: #C8D4D9;
+}
+
+.mat-option.mat-selected:not(.mat-option-disabled) {
+    background-color: #607D8B;
+    color: #FFF0F4;
+}
+
 @media (min-width: 600px) {
     .search-container {
-        float: right;
+        margin-left: 2em;
+        display: inline;
     }
 }
 
+.dark-font {
+    color:#353D44;
+}
+
+
+mat-icon {
+  color: #FFF0F4;
+  background-color: #EA1E63;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 600px) { 
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+    float: right;
+  }
+}
 
 ::ng-deep .mat-form-field-underline {
-    background-color: black !important;
+    background-color: #353D44 !important;
 }
 
 ::ng-deep .mat-form-field-label{
-    color:#000 !important;
+    color:#353D44 !important;
+}
+
+.add-employee {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    background-color: #EA1E63;
+    color: #FFF0F4;
+    margin-top: 1em;
+    display: inline;
+    border: 0px;
+    border-radius: 8px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
+    @media (min-width: 600px) { 
+        float: right;
+    }
+    @media (max-width: 600px) { 
+       width: 100%;
+       margin-bottom: 2em;
+    }
+   
+}
+
+.add-employee:hover {
+    background-color: #FF6C92;
+    cursor: pointer;
+}
+
+.mat-form-field {
+    @media (max-width: 600px) { 
+        width: 100%;
+        margin-bottom: 2em;
+    }
 }
