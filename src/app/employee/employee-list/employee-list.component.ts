@@ -8,7 +8,7 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent {
-  employees: Employee[] = [];
+  employees: Employee[];
   selectedSortOption: string = 'id'
   searchTerm: string = '';
   constructor(private employeeService: EmployeeService) { }
