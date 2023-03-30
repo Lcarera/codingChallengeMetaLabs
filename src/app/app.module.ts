@@ -9,12 +9,14 @@ import { HeaderComponent } from './shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { EmployeeFilterPipe } from './shared/pipes/employee-filter.pipe';
+import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     HeaderComponent,
-    EmployeeFilterPipe
+    EmployeeFilterPipe,
+    EmployeeFormComponent
   ],
   imports: [
     BrowserModule,
