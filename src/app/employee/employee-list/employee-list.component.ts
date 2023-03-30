@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../shared/models/employee.model';
 import { EmployeeService } from '../employee.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -11,7 +11,9 @@ export class EmployeeListComponent {
   employees: Employee[];
   selectedSortOption: string = 'id'
   searchTerm: string = '';
-  constructor(private employeeService: EmployeeService) { }
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -35,7 +37,9 @@ export class EmployeeListComponent {
   }
 
   addEmployee() {
+    console.log("ADD");
     
+    this.router.navigate(['/add-employee']);
   }
 
   editEmployee(employeeId:number): void {

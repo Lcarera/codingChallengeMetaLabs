@@ -15,7 +15,7 @@
       <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Search for employees">
     </mat-form-field>
   </div>
-  <button class="add-employee">Add employee</button>
+  <button class="add-employee" (click)="addEmployee()">Add employee</button>
 </div>
   <mat-list-item *ngFor="let employee of employees | employeeFilter:searchTerm" class="employee-item">
     <h3 mat-line>{{ employee.name }}</h3>
