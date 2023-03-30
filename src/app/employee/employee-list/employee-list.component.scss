@@ -45,10 +45,12 @@
 ::ng-deep .mat-form-field-underline {
     background-color: black;
 }
-
-.search-container {
-    float: right;
+@media (min-width: 600px) {
+    .search-container {
+        float: right;
+    }
 }
+
 
 ::ng-deep .mat-form-field-underline {
     background-color: black !important;
