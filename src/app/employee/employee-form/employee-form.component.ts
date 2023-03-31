@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
+import { Employee } from 'src/app/shared/models/employee.model';
 
 @Component({
   selector: 'app-employee-form',
@@ -9,7 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.employeeForm = this.formBuilder.group({
@@ -20,6 +24,14 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.employeeForm.value);
+    const employee: Employee = this.employeeForm.value;
+    this.employeeService.addEmployee(employee).subscribe({
+      next: () => {
+        console.log('Employee added successfully!');
+      },
+      error: error => {
+        console.error('Error adding employee: ', error);
+      }
+    });
   }
 }
