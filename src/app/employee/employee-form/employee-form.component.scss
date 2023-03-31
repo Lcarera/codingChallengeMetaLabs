@@ -21,10 +21,6 @@
     font-size: 16px !important;
 }
 
-.mat-select-arrow {
-    color: #fff !important;
-}
-
 .mat-error {
     font-size: 14px;
     color: #f44336;
@@ -36,24 +32,52 @@
     margin-top: 24px;
 }
 
-button {
-    margin-left: 8px;
+.save {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    background-color: #EA1E63;
+    color: #FFF0F4;
+    display: inline;
+    border: 0px;
+    border-radius: 8px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
+    @media (max-width: 600px) { 
+       width: 100%;
+       margin-bottom: 2em;
+    }
+   
 }
 
-button[type="submit"] {
-    background-color: #ff4081;
+.save:hover {
+    background-color: #FF6C92;
+    cursor: pointer;
 }
 
-button[type="submit"]:hover,
-button[type="submit"]:focus {
-    background-color: #f50057;
+.go-back {
+    background-color: #C8D4D9;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #353D44;
+    display: inline;
+    border: 0px;
+    border-radius: 8px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    @media (max-width: 600px) { 
+        width: 100%;
+        margin-bottom: 1em;
+    }
 }
 
-button[type="button"] {
-    background-color: #90a4ae;
+.go-back:hover {
+    background-color: #FFF0F4;
+    cursor: pointer;
 }
 
-button[type="button"]:hover,
-button[type="button"]:focus {
-    background-color: #78909c;
+@media (max-width: 600px) {
+    .button-bar {
+      flex-direction: column;
+    }
 }
