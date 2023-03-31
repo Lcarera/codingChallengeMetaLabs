@@ -7,7 +7,7 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
 import { MaterialModule } from "./material.module";
 import { HeaderComponent } from './shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeFilterPipe } from './shared/pipes/employee-filter.pipe';
 import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 @NgModule({
@@ -24,7 +24,8 @@ import { EmployeeFormComponent } from './employee/employee-form/employee-form.co
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
