@@ -37,8 +37,6 @@ export class EmployeeListComponent {
   }
 
   addEmployee() {
-    console.log("ADD");
-    
     this.router.navigate(['/add-employee']);
   }
 
