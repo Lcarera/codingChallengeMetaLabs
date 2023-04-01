@@ -13,12 +13,12 @@
 }
 
 
-  
+
 .mat-list-item {
     background-color: #353D44;
     color: #FFF0F4;
 }
-  
+
 .mat-list-item:hover {
     background-color: #607D8B;
 }
@@ -31,16 +31,16 @@
 ::ng-deep .mat-select-arrow {
     color: #353D44;
 }
-  
+
 ::ng-deep .mat-select-value {
     color: #353D44;
 }
-  
+
 ::ng-deep .mat-option {
     color: #353D44;
     background-color: #FFF0F4;
 }
-  
+
 ::ng-deep .mat-form-field-underline {
     background-color: #353D44;
 }
@@ -55,7 +55,7 @@
     color: #FFF0F4;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 750px) {
     .search-container {
         margin-left: 2em;
         display: inline;
@@ -63,34 +63,35 @@
 }
 
 .dark-font {
-    color:#353D44;
+    color: #353D44;
 }
 
 
 mat-icon {
-  color: #FFF0F4;
-  background-color: #EA1E63;
-  border-radius: 50%;
-  font-size: 24px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: 600px) { 
-    font-size: 16px;
-    width: 24px;
-    height: 24px;
-    float: right;
-  }
+    color: #FFF0F4;
+    background-color: #EA1E63;
+    border-radius: 50%;
+    font-size: 24px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 750px) {
+        font-size: 16px;
+        width: 24px;
+        height: 24px;
+        float: right;
+    }
 }
 
 ::ng-deep .mat-form-field-underline {
     background-color: #353D44 !important;
 }
 
-::ng-deep .mat-form-field-label{
-    color:#353D44 !important;
+::ng-deep .mat-form-field-label {
+    color: #353D44 !important;
 }
 
 .add-employee {
@@ -105,14 +106,15 @@ mat-icon {
     border-radius: 8px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 
-    @media (min-width: 600px) { 
+    @media (min-width: 750px) {
         float: right;
     }
-    @media (max-width: 600px) { 
-       width: 100%;
-       margin-bottom: 2em;
+
+    @media (max-width: 750px) {
+        width: 100%;
+        margin-bottom: 2em;
     }
-   
+
 }
 
 .add-employee:hover {
@@ -121,7 +123,7 @@ mat-icon {
 }
 
 .mat-form-field {
-    @media (max-width: 600px) { 
+    @media (max-width: 750px) {
         width: 100%;
         margin-bottom: 2em;
     }

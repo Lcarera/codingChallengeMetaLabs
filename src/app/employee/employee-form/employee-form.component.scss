@@ -43,11 +43,11 @@
     border-radius: 8px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 
-    @media (max-width: 600px) { 
-       width: 100%;
-       margin-bottom: 2em;
+    @media (max-width: 750px) {
+        width: 100%;
+        margin-bottom: 2em;
     }
-   
+
 }
 
 .save:hover {
@@ -65,7 +65,8 @@
     border: 0px;
     border-radius: 8px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    @media (max-width: 600px) { 
+
+    @media (max-width: 750px) {
         width: 100%;
         margin-bottom: 1em;
     }
@@ -76,8 +77,8 @@
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
     .button-bar {
-      flex-direction: column;
+        flex-direction: column;
     }
 }
