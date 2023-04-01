@@ -26,10 +26,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('codingChallengeMetaLabs');
   });
 
-  it('should render title', () => {
+  it('should render header and router-outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('codingChallengeMetaLabs app is running!');
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.container')).toBeTruthy();
+    expect(compiled.querySelector('app-header')).toBeTruthy();
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });
