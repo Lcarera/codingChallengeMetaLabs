@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
+  title:string = 'Add employee'
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,6 +48,7 @@ export class EmployeeFormComponent implements OnInit {
       this.employeeService.getEmployee(id).subscribe({
         next: employee => {
           this.employeeForm.patchValue(employee);
+          this.title = 'Edit employee'
         },
         error: error => {
           console.error('Error getting the employee with id:' + id, error);
