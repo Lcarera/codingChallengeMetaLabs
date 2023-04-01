@@ -19,9 +19,8 @@ export class EmployeeService {
     );
   }
   
-  deleteEmployee(id: number): Observable<any> {
-    const url = this.serverUrl + id;
-    return this.http.delete(url);
+  deleteEmployee(id: number):Observable<any> {
+    return this.http.delete(this.serverUrl + '/' + id)
   }
 
   addEmployee(employee: Employee): Observable<Employee> {
@@ -29,7 +28,7 @@ export class EmployeeService {
   }
 
   getEmployee(id: number): Observable<Employee> {
-    return this.http.get<Employee>(this.serverUrl + '/' + id)
+    return this.http.get<Employee>(this.serverUrl + '/' + id);
   }
 
   updateEmployee(employee: Employee): Observable<Employee> {
