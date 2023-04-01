@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeFilterPipe } from './shared/pipes/employee-filter.pipe';
 import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 import { DeleteDialogComponent } from './employee/delete-dialog/delete-dialog.component';
+import { MessageService } from './message.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { DeleteDialogComponent } from './employee/delete-dialog/delete-dialog.co
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
