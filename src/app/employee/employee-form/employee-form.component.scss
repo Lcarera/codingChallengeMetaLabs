@@ -1,8 +1,9 @@
 .employee-form {
-    max-width: 500px;
+    max-width: 800px;
+    max-height: 800px;
     margin: 0 auto;
     padding: 16px;
-    background-color: #fff;
+    background-color: #f2f2f2;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -14,7 +15,13 @@
 }
 
 .form-field {
-    width: calc(33% - 8px);
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.mat-h1{
+    color:#353D44;
+    font-weight: 500;
 }
 
 .mat-form-field {
@@ -23,7 +30,7 @@
 
 .mat-error {
     font-size: 14px;
-    color: #f44336;
+    color: #ff1759;
 }
 
 .button-bar {
@@ -33,7 +40,7 @@
 }
 
 .save {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 16px;
     line-height: 30px;
     background-color: #EA1E63;
@@ -42,7 +49,7 @@
     border: 0px;
     border-radius: 8px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-
+    width: 8em;
     @media (max-width: 750px) {
         width: 100%;
         margin-bottom: 2em;
@@ -57,7 +64,7 @@
 
 .go-back {
     background-color: #C8D4D9;
-    font-weight: 300;
+    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #353D44;
@@ -65,7 +72,7 @@
     border: 0px;
     border-radius: 8px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-
+    width: 8em;
     @media (max-width: 750px) {
         width: 100%;
         margin-bottom: 1em;
@@ -81,4 +88,16 @@
     .button-bar {
         flex-direction: column;
     }
+}
+
+::ng-deep .mat-form-field-underline {
+    background-color: #353D44 !important;
+}
+
+::ng-deep .mat-form-field-label {
+    color: #353D44 !important;
+}
+
+mat-label{
+    color: #607D8B;
 }
