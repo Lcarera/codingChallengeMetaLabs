@@ -6,10 +6,30 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { MessageService } from 'src/app/message.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.scss']
+  styleUrls: ['./employee-list.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0, transform: 'translateX(-100px)' }),
+            stagger(100, [
+              animate(
+                '0.5s ease-out',
+                style({ opacity: 1, transform: 'translateX(0)' })
+              )
+            ])
+          ],
+          { optional: true }
+        )
+      ])
+    ])
+  ]
 })
 export class EmployeeListComponent {
   employees: Employee[];

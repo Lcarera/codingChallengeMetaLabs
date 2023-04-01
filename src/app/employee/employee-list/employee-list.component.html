@@ -1,4 +1,4 @@
-<mat-list class="employee-list">
+<mat-list [@listAnimation]="employees.length" class="employee-list">
   	<div class="controls-container">
 		<mat-label style="margin-right: 1em;" class="dark-font">Sort By:</mat-label>
 		<mat-form-field color="primary" class="sort-dropdown">
