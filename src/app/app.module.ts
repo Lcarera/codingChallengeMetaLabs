@@ -10,13 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeFilterPipe } from './shared/pipes/employee-filter.pipe';
 import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
+import { DeleteDialogComponent } from './employee/delete-dialog/delete-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     HeaderComponent,
     EmployeeFilterPipe,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
