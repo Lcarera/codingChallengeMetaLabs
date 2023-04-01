@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
   title:string = 'Add employee'
+  employeeId: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,15 +32,29 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const employee: Employee = this.employeeForm.value;
-    this.employeeService.addEmployee(employee).subscribe({
-      next: () => {
-        console.log('Employee added successfully!');
-      },
-      error: error => {
-        console.error('Error adding employee: ', error);
-      }
-    });
+    if (this.title == 'Add employee') {
+      const employee: Employee = this.employeeForm.value;
+      this.employeeService.addEmployee(employee).subscribe({
+        next: () => {
+          console.log('Employee added successfully!');
+        },
+        error: error => {
+          console.error('Error adding employee: ', error);
+        }
+      });
+    } else {
+      const employee: Employee = this.employeeForm.value;
+      employee.id = this.employeeId
+      this.employeeService.updateEmployee(employee).subscribe({
+        next: () => {
+          console.log('Employee updated successfully!');
+        },
+        error: error => {
+          console.error('Error updating employee: ', error);
+        }
+      });
+    }
+    
   }
 
   getEmployee():void{
@@ -49,6 +64,7 @@ export class EmployeeFormComponent implements OnInit {
         next: employee => {
           this.employeeForm.patchValue(employee);
           this.title = 'Edit employee'
+          this.employeeId = id
         },
         error: error => {
           console.error('Error getting the employee with id:' + id, error);
