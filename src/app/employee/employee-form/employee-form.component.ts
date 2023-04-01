@@ -32,8 +32,9 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onSubmit() {
+    const employee: Employee = this.employeeForm.value;
+    if(!this.isEmployeeValid(employee)) return
     if (this.title == 'Add employee') {
-      const employee: Employee = this.employeeForm.value;
       this.employeeService.addEmployee(employee).subscribe({
         next: () => {
           console.log('Employee added successfully!');
@@ -43,7 +44,6 @@ export class EmployeeFormComponent implements OnInit {
         }
       });
     } else {
-      const employee: Employee = this.employeeForm.value;
       employee.id = this.employeeId
       this.employeeService.updateEmployee(employee).subscribe({
         next: () => {
@@ -74,5 +74,12 @@ export class EmployeeFormComponent implements OnInit {
     else{
       console.log("'" +(this.route.snapshot.paramMap.get('id') + "' it is not a valid Id"));
     }
+  }
+
+  isEmployeeValid(employee: Employee): boolean {
+    if (!employee.name || !employee.jobTitle || !employee.department) {
+      return false;
+    }
+    return true;
   }
 }
