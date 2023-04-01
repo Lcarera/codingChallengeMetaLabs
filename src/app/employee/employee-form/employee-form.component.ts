@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
 import { Employee } from 'src/app/shared/models/employee.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'src/app/message.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -17,7 +18,9 @@ export class EmployeeFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private employeeService: EmployeeService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     if (this.route.snapshot.url[0].path == 'edit-employee') {
@@ -37,24 +40,28 @@ export class EmployeeFormComponent implements OnInit {
     if (this.title == 'Add employee') {
       this.employeeService.addEmployee(employee).subscribe({
         next: () => {
-          console.log('Employee added successfully!');
+          this.messageService.sendMessage('Employee added successfully!', 'success');
+         
         },
         error: error => {
           console.error('Error adding employee: ', error);
+          this.messageService.sendMessage('Error creating employee, try again later.', 'error');
         }
       });
     } else {
       employee.id = this.employeeId
       this.employeeService.updateEmployee(employee).subscribe({
         next: () => {
-          console.log('Employee updated successfully!');
+          this.messageService.sendMessage('Employee updated successfully!', 'success');
+          this.router.navigate(['']);
         },
         error: error => {
           console.error('Error updating employee: ', error);
+          this.messageService.sendMessage('Error updating employee, try again later.', 'error');
         }
       });
     }
-    
+    this.router.navigate(['']);
   }
 
   getEmployee():void{
