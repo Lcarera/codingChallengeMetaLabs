@@ -36,12 +36,12 @@ export class EmployeeListComponent {
     });
   }
 
-  addEmployee() {
+  addEmployee():void {
     this.router.navigate(['/add-employee']);
   }
 
   editEmployee(employeeId:number): void {
-    console.log("Edit employee: " + employeeId);
+    this.router.navigate(['/edit-employee/' + employeeId])
   }
 
   deleteEmployee(employeeId:number): void {
