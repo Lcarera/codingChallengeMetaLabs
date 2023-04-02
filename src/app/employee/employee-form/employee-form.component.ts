@@ -4,6 +4,7 @@ import { EmployeeService } from '../employee.service';
 import { Employee } from 'src/app/shared/models/employee.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'src/app/message.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-employee-form',
@@ -20,7 +21,8 @@ export class EmployeeFormComponent implements OnInit {
     private employeeService: EmployeeService,
     private route: ActivatedRoute,
     private router: Router,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     if (this.route.snapshot.url[0].path == 'edit-employee') {
@@ -53,7 +55,6 @@ export class EmployeeFormComponent implements OnInit {
       this.employeeService.updateEmployee(employee).subscribe({
         next: () => {
           this.messageService.sendMessage('Employee updated successfully!', 'success');
-          this.router.navigate(['']);
         },
         error: error => {
           console.error('Error updating employee: ', error);
@@ -75,12 +76,17 @@ export class EmployeeFormComponent implements OnInit {
         },
         error: error => {
           console.error('Error getting the employee with id:' + id, error);
+          this.messageService.sendMessage('Error getting the employee to edit, try again later.', 'error');
+          this.router.navigate(['/'])
         }
       });
     }
     else{
-      console.log("'" +(this.route.snapshot.paramMap.get('id') + "' it is not a valid Id"));
+      console.error("'" +(this.route.snapshot.paramMap.get('id') + "' it is not a valid Id"));
+      this.showMessage({text:'Error getting the employee to edit, try again later.', type:'error'});
+      this.router.navigate(['/add-employee'])
     }
+
   }
 
   isEmployeeValid(employee: Employee): boolean {
@@ -88,5 +94,14 @@ export class EmployeeFormComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  showMessage(message:{text: string, type:string}) {
+    this.snackBar.open(message.text, 'Close', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: message.type
+    });
   }
 }
