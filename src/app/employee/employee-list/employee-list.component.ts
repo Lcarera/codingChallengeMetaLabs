@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Employee } from '../../shared/models/employee.model';
 import { EmployeeService } from '../employee.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { MessageService } from 'src/app/message.service';
@@ -40,7 +40,11 @@ export class EmployeeListComponent {
 	private router: Router,
 	private dialog: MatDialog,
 	private messageService: MessageService,
-	private snackBar: MatSnackBar) { 
+	private snackBar: MatSnackBar,
+  private route: ActivatedRoute) {
+    if (this.route.snapshot.url[0].path != 'list-employee') {
+      this.showMessage({text:'Page not found', type:'error'})
+    }
 		this.messageService.getMessage().subscribe(message => {
 			this.showMessage(message);
 		});
