@@ -32,7 +32,7 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
   ]
 })
 export class EmployeeListComponent {
-  employees: Employee[];
+  employees: Employee[] = [];
   selectedSortOption: string = 'id'
   searchTerm: string = '';
   constructor(
