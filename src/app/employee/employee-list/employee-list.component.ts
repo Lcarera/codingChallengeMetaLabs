@@ -42,7 +42,7 @@ export class EmployeeListComponent {
 	private messageService: MessageService,
 	private snackBar: MatSnackBar,
   private route: ActivatedRoute) {
-    if (this.route.snapshot.url[0].path != 'list-employee') {
+    if (this.route.snapshot.url[0].path != 'employees') {
       this.showMessage({text:'Page not found', type:'error'})
     }
 		this.messageService.getMessage().subscribe(message => {
