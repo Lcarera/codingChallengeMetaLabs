@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class EmployeeService {
   constructor(private http: HttpClient) {}
-  private serverUrl = 'http://localhost:3000/employees'
+  private serverUrl = 'http://localhost:8080/api/employees'
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.serverUrl).pipe(
       catchError(() => {
